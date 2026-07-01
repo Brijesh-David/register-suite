@@ -115,7 +115,8 @@
         </div>
     </div>
 
-    <!-- Header + Row Heights -->
+   <!-- Header + Row Heights + Margin + Rows Per Page -->
+    
     <div class="input-row ctrl-group">
         <div>
             <label for="headerHeight">Header H (mm):</label>
@@ -126,6 +127,42 @@
             <input type="number" id="rowHeight" value="7.3" step="0.1" oninput="onHeightChange()">
         </div>
     </div>
+
+
+    <!-- Page Margin + Rows Per Page — the precision controls -->
+    <div class="ctrl-group">
+        <label style="color:#42f56f; font-size:10px; font-weight:700;">
+            📏 Page Fit Controls
+        </label>
+        <div class="input-row" style="margin-bottom:4px;">
+            <div>
+                <label for="marginTop" style="font-size:10px; color:#aaa;">Top (mm):</label>
+                <input type="number" id="marginTop" value="5" step="0.5" min="0"
+                       title="Top margin mm" oninput="onHeightChange()">
+            </div>
+            <div>
+                <label for="marginBottom" style="font-size:10px; color:#aaa;">Bottom (mm):</label>
+                <input type="number" id="marginBottom" value="5" step="0.5" min="0"
+                       title="Bottom margin mm" oninput="onHeightChange()">
+            </div>
+        </div>
+        <div>
+            <label for="rowsPerPage" style="font-size:10px; color:#aaa;">
+                Rows/Page (0 = auto from margins):
+            </label>
+            <input type="number" id="rowsPerPage" value="0" step="1" min="0" max="60"
+                   title="Set exact rows per page — margins auto-calculated. 0 = use margins above."
+                   oninput="onHeightChange()"
+                   style="width:100%;">
+        </div>
+        <!-- Live readout — shows calculated values -->
+        <div id="pageFitInfo"
+             style="font-size:9px; color:#42f56f; margin-top:3px; padding:2px 4px;
+                    background:#111; border-radius:3px; font-family:'Roboto Mono',monospace;">
+            Auto
+        </div>
+    </div>
+
 
     <!-- Print button — primary action, stays prominent -->
     <button class="btn btn-print no-print" onclick="smartPrint()">🖨 Print Register</button>
